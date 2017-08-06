@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="想当一个设计狮">
+<meta name="description" content="我是狗粮啊！">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Renaissancell">
 <meta property="og:url" content="http://renaissancell.com/index.html">
 <meta property="og:site_name" content="Renaissancell">
-<meta property="og:description" content="想当一个设计狮">
+<meta property="og:description" content="我是狗粮啊！">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Renaissancell">
-<meta name="twitter:description" content="想当一个设计狮">
+<meta name="twitter:description" content="我是狗粮啊！">
 
 
 
@@ -210,7 +210,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -230,7 +230,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -240,7 +240,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -319,8 +319,41 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/03/Git-summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/03/Git-summary/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -355,8 +388,7 @@
 
       
         
-          
-            <h1 id="Git-命令"><a href="#Git-命令" class="headerlink" title="Git 命令"></a>Git 命令</h1><hr>
+          <h1 id="Git-命令"><a href="#Git-命令" class="headerlink" title="Git 命令"></a>Git 命令</h1><hr>
 <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><h3 id="创建版本库-1"><a href="#创建版本库-1" class="headerlink" title="创建版本库"></a>创建版本库</h3><ul>
 <li>创建一个空目录，目录名用英文  <pre><code>$ mkdir <file> //创建一个空目录
   $ cd <file> //进入目录
@@ -366,179 +398,14 @@
 </li>
 </ul>
 <ul>
-<li>把目录变成Git可以管理的仓库（仓库初始化）<br><br>  <pre><code>git init</code></pre></li>
-</ul>
-<h3 id="把文件添加到Git仓库"><a href="#把文件添加到Git仓库" class="headerlink" title="把文件添加到Git仓库"></a>把文件添加到Git仓库</h3><ul>
-<li><p>把文件提交到暂存区<br><br>  <pre><code>$ git add <file></file></code></pre></p>
-</li>
-<li><p>把文件提交到仓库<br><br>  <pre><code>$ git commit<br>  $ git commit -m “备注”<br>  $ git commit -am ‘xxx’ //将add和commit合并为一步</code></pre></p>
-</li>
-</ul>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>添加文件到Git仓库，分两步：</p>
-<ol>
-<li>使用命令<code>git add &lt;file&gt;</code>，注意，可反复多次添加多个文件；</li>
-<li>使用命令<code>git commit</code>，完成。</li>
-</ol>
-<hr>
-<h2 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h2><h3 id="查看工作区状态"><a href="#查看工作区状态" class="headerlink" title="查看工作区状态"></a>查看工作区状态</h3><pre><code>$ git status
-</code></pre><h3 id="查看修改的内容"><a href="#查看修改的内容" class="headerlink" title="查看修改的内容"></a>查看修改的内容</h3><pre><code>$ git diff &lt;file&gt;
-</code></pre><p>工作区和暂存区的比较，当文件修改后还没提交之前，可用<code>git diff</code>命令查看修改的内容。</p>
-<hr>
-<h3 id="查看历史记录"><a href="#查看历史记录" class="headerlink" title="查看历史记录"></a>查看历史记录</h3><pre><code>$ git log
-$ git log --pretty=oneline //简化输出信息
-</code></pre><h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><pre><code>$ git reset
-</code></pre><p>例如，回退到上个版本：</p>
-<pre><code>$ git reset --hard HEAD^</code></pre>
-`HEAD`表示当前版本，上一个版本是`HEAD^`，上上个版本`HEAD^^`，上10个版本写成`HEAD~100`。<br>
-
-例如，再回到当前版本：
-<pre><code>$ git reset --hard <版本id></版本id></code></pre>
-
-<blockquote>
-<p>参数</p>
-</blockquote>
-<p><font color="red">–hard</font><br><br>–hard参数将会blow out everything.它将重置HEAD返回到另外一个commit(取决于~12的参数），重置index（暂存区）以便反映HEAD的变化，并且重置working copy（工作区）也使得其完全匹配起来。<br><br>这是一个比较危险的动作，具有破坏性，数据因此可能会丢失！如果真是发生了数据丢失又希望找回来，那么只有使用：git reflog命令了。<strong>所有本地修改将丢失!</strong><br><br>如果我们希望彻底丢掉本地修改但是又不希望更改branch所指向的commit，则执行git reset –hard = git reset –hard HEAD. i.e. 另外一个场景是简单地移动branch从一个到另一个commit而保持index/work区域同步。这将确实令你丢失你的工作，因为它将修改你的work tree！</p>
-<p><font color="red">–soft</font><br><br>–soft参数告诉Git重置HEAD到另外一个commit，但也到此为止。如果你指定–soft参数，Git将停止在那里而什么也不会根本变化。这意味着index,working copy都不会做任何变化，所有的在original HEAD和你重置到的那个commit之间的所有变更集都放在stage(index)区域中。</p>
-<p><font color="red">–mixed</font><br><br>–mixed是reset的默认参数，也就是当你不指定任何参数时的参数。它将重置HEAD到另外一个commit,并且重置index以便和HEAD相匹配，但是也到此为止。working copy不会被更改。所有该branch上从original HEAD（commit）到你重置到的那个commit之间的所有变更将作为local modifications保存在working area中，（被标示为local modification or untracked via git status)，但是并未staged的状态，你可以重新检视然后再做修改和commit。</p>
-<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h3><pre><code>$ cat &lt;file&gt;
-</code></pre><h3 id="查看每一次命令的记录"><a href="#查看每一次命令的记录" class="headerlink" title="查看每一次命令的记录"></a>查看每一次命令的记录</h3><pre><code>$ git reflog
-</code></pre><h4 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h4><ul>
-<li><code>HEAD</code>指向的版本就是当前版本，使用命令<code>git reset --hard &lt;id&gt;</code>可在各版本之间切换；</li>
-<li><code>git log</code>可查看提交历史；</li>
-<li><code>git reflog</code>查看命令历史。</li>
-<li>找回<code>git add</code>过但是已经不存在文件中的内容，用命令<code>git fsck --lost-found</code>。</li>
-<li><strong>注意：如果在工作区修改了很多内容但没有<code>add</code>到并且<code>commit</code>就<code>reset</code>到之前的版本的话，那么这些修改就会消失，而且是无法挽回的！</strong></li>
-</ul>
-<hr>
-<h3 id="撤销对工作区的修改"><a href="#撤销对工作区的修改" class="headerlink" title="撤销对工作区的修改"></a>撤销对工作区的修改</h3><pre><code>$ git checkout -- &lt;file&gt;
-</code></pre><h3 id="撤销对暂存区的修改"><a href="#撤销对暂存区的修改" class="headerlink" title="撤销对暂存区的修改"></a>撤销对暂存区的修改</h3><pre><code>$ git reset HEAD &lt;file
-</code></pre><h4 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h4><ul>
-<li>场景1：想直接丢弃工作区的修改，用命令<code>git checkout -- file</code>。</li>
-<li>场景2：想丢弃暂存区的修改，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二部按场景1操作。</li>
-<li>场景3：已经提交了不合适的修改到版本库，用版本回退命令<code>git reset --hard &lt;版本id&gt;</code></li>
-<li>如果已经提交到远程库……呵呵~</li>
-</ul>
-<hr>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><ul>
-<li>删除工作区的文件  <pre><code>$ rm &lt;file&gt;</code></pre></li>
-<li>删除版本库的文件  <pre><code>$ git rm &lt;file&gt;</code></pre>
-
-</li>
-</ul>
-<h4 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h4><ul>
-<li>如果误删了工作区的文件，可用命令<code>git checkout</code>恢复，本质上是版本库里的版本替换工作区的版本。</li>
-<li>命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</li>
-</ul>
-<hr>
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="连接远程库Github"><a href="#连接远程库Github" class="headerlink" title="连接远程库Github"></a>连接远程库Github</h3><p>第一步：创建SSH Key。（如果用户主目录下有<code>id_rsa</code>&lt;私钥&gt;和<code>id_rsa.pub</code>&lt;公钥&gt;,可直接跳到下一步。）<br>    $ ssh-keygen -t rsa -C “youremail@example.com”<br><br><br>第二步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：<br>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：</p>
-<h4 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h4><p>场景应用：假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
-<hr>
-<h3 id="关联远程库"><a href="#关联远程库" class="headerlink" title="关联远程库"></a>关联远程库</h3><ol>
-<li>创建一个空的GitHub仓库；</li>
-<li>在本地的仓库下使用命令：<pre><code>$ git remote add origin git@github.com:lingliang/&lt;repository&gt;</code></pre>
-
-</li>
-</ol>
-<h3 id="把本地内容推送到远程库"><a href="#把本地内容推送到远程库" class="headerlink" title="把本地内容推送到远程库"></a>把本地内容推送到远程库</h3><pre><code>$ git push -u origin 
-</code></pre><p><code>-u</code>参数的作用：第一次推送到master分支后，以后的推送就可以简化命令，直接<code>git push</code>。</p>
-<hr>
-<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><pre><code>$ git clone git@github.com:lingliang/&lt;repository&gt;.git
-</code></pre><h4 id="小结-5"><a href="#小结-5" class="headerlink" title="小结"></a>小结</h4><ul>
-<li>要克隆一个仓库，首先必须知道仓库的地址，然后使用<code>git clone</code>命令克隆。</li>
-<li>Git支持多种协议，包括<code>http</code>，但通过<code>ssh</code>支持的原生<code>git</code>协议速度最快。</li>
-</ul>
-<hr>
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="分支创建与合并"><a href="#分支创建与合并" class="headerlink" title="分支创建与合并"></a>分支创建与合并</h3><p>示例：<br></p>
-<ol>
-<li>创建<code>dev</code>分支，然后切换到<code>dev</code>分支。<br><pre><code>$ git checkout -b dev</code></pre><br><code>git checkout</code>命令加上<code>-b</code>参数表示创建分支并切换；等同于：<br><br><pre><code>$ git branch dev<br>$ git checkout dev</code></pre><br><code>git branch</code>命令可查看当前分支。<br><br></li>
-<li>把<code>dev</code>分支合并到<code>master</code>分支。<br></li>
-</ol>
-<ul>
-<li>先切换到master分支：<code>git checkout master</code><br></li>
-<li>合并<code>dev</code>分支<pre><code>$ git merge dev</code></pre>
-删除`dev`分支
-<pre><code>$ git branch -d dev</code></pre>
-
-</li>
-</ul>
-<h4 id="小结-6"><a href="#小结-6" class="headerlink" title="小结"></a>小结</h4><ul>
-<li>查看分支： <code>git branch</code></li>
-<li>创建分支： <code>git branch &lt;name&gt;</code></li>
-<li>切换分支： <code>git checkout &lt;name&gt;</code></li>
-<li>创建+切换分支： <code>git checkout -b &lt;name&gt;</code></li>
-<li>合并某分支到当前分支： <code>git merge &lt;name&gt;</code></li>
-<li>删除分支： <code>git branch -d &lt;name&gt;</code></li>
-<li>分支合并时，git会用<code>Fast forward</code>模式，但这种模式下，删除分支会丢失分支信息。如果加上<code>--no-ff</code>参数（表示禁用<code>Fast forward</code>），git会在合并时创建一个新的commit，这样就可以在分支历史上看见分支信息。<br><br>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并，相当于<code>HEAD</code>指向了<code>dev</code>分支 最新<code>commit</code></li>
-</ul>
-<hr>
-<h3 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h3><pre><code>$ git stash //储存工作现场
-$ git stash list //查看储存的工作现场记录
-$ git stash apply //恢复工作现场
-$ git stash drop //删除stash的工作
-$ git stash pop //恢复并删除stash的工作
-</code></pre><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
-<p>当手头工作没有完成时，先把工作现场<code>git stash</code>一下，然后去修复bug，修复后，再<code>git stash pop</code>，回到工作现场。</p>
-<h3 id="强制删除没有合并过的分支"><a href="#强制删除没有合并过的分支" class="headerlink" title="强制删除没有合并过的分支"></a>强制删除没有合并过的分支</h3><pre><code>$ git branch -D &lt;name&gt;
-</code></pre><hr>
-<h3 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h3><pre><code>$ git remote
-或 $ git remote -v //查看更详细的信息
-</code></pre><h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><pre><code>$ git push origin &lt;branch&gt;
-</code></pre><h3 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h3><pre><code>$ git clone git@github.com:lingliang/&lt;repository&gt;.git
-</code></pre><h3 id="创建远程的分支到本地"><a href="#创建远程的分支到本地" class="headerlink" title="创建远程的分支到本地"></a>创建远程的分支到本地</h3><pre><code>$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
-</code></pre><h3 id="建立本地分支与远程分支的联结"><a href="#建立本地分支与远程分支的联结" class="headerlink" title="建立本地分支与远程分支的联结"></a>建立本地分支与远程分支的联结</h3><pre><code>git branch --set-upstream &lt;branch&gt; origin/&lt;branch&gt;
-</code></pre><h3 id="多人协作模式"><a href="#多人协作模式" class="headerlink" title="多人协作模式"></a>多人协作模式</h3><ol>
-<li><p>首先，可以试图用<code>git push origin &lt;branch&gt;</code>推送自己的修改；</p>
-</li>
-<li><p>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</p>
-</li>
-<li><p>如果合并有冲突，则解决冲突，并在本地提交；</p>
-</li>
-<li><p>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch&gt;</code>推送就能成功！</p>
-</li>
-<li><p>如果<code>git pull</code>提示<code>“no tracking information”</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream &lt;branch&gt; origin/&lt;branch&gt;</code>。</p>
-</li>
-</ol>
-<hr>
-<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><pre><code>$ git branch &lt;branch&gt; //切换到需要打标签的分支
-$ git tag &lt;name&gt; //打标签（默认标签是打在最新提交的commit上的）
-$ git tag //查看所有标签
-$ git tag &lt;name&gt; &apos;id&apos; //对id对应的操作打标签
-</code></pre><p>标签不是按时间顺序列出，而是按字母排序的。<br><code>git show &lt;tagname&gt;</code>可查看标签信息</p>
-<pre><code>$ git tag -a &lt;tagname&gt; -m &quot;description&quot; //对标签进行说明
-</code></pre><p><code>-a</code>指定标签名，<code>-m</code>指定说明</p>
-<h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><pre><code>$ git tag -d &lt;tagname&gt; //删除标签
-</code></pre><h3 id="推送标签到远程"><a href="#推送标签到远程" class="headerlink" title="推送标签到远程"></a>推送标签到远程</h3><pre><code>$ git push origin &lt;tagname&gt;
-$ git push origin --tags //推送全部标签到远程
-</code></pre><h3 id="删除远程标签"><a href="#删除远程标签" class="headerlink" title="删除远程标签"></a>删除远程标签</h3><pre><code>1. $ git tag -d &lt;tagname&gt;
-2. $ git push origin :refs/tags/&lt;tagname&gt;
-</code></pre><hr>
-<h2 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h2><h3 id="让Git显示颜色"><a href="#让Git显示颜色" class="headerlink" title="让Git显示颜色"></a>让Git显示颜色</h3><pre><code>$ git config --global color.ui true
-</code></pre><h3 id="配置命令别名"><a href="#配置命令别名" class="headerlink" title="配置命令别名"></a>配置命令别名</h3><pre><code>$ git config --global alias.&lt;别名&gt; &lt;命令&gt;
-如 $ git config --global alias.st status
-</code></pre><p><code>git st</code>作用等同于<code>git status</code></p>
-<p>命令<code>$ cat .gitconfig</code>可查看别名</p>
-<p>配置Git的时候，加上<code>--global</code>是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</p>
-<p>每个仓库的Git配置文件都放在.git/config文件中，要删除别名，找到<code>.gitcongig</code>文件中删除。</p>
-<hr>
-<h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><p>在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。</p>
-<p>忽略文件的原则是：</p>
-<ol>
-<li>忽略操作系统自动生成的文件，比如缩略图等；</li>
-<li>忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；</li>
-<li>忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。</li>
-</ol>
-<p><strong>举个例子：</strong></p>
-<p>假设你在Windows下进行Python开发，Windows会自动在有图片的目录下生成隐藏的缩略图文件，如果有自定义目录，目录下就会有Desktop.ini文件，因此你需要忽略Windows自动生成的垃圾文件：</p>
-<pre><code># Windows:
-Thunbs.db
-ehthumbs.db
-Desktop.ini
-</code></pre><p>最后一步就是把.gitignore也提交到Git，就完成了！当然检验.gitignore的标准是git status命令是不是说working directory clean。</p>
-<p>有些时候，你想添加一个文件到Git，但发现添加不了，原因是这个文件被.gitignore忽略了</p>
-<pre><code>$ git add -f &lt;file&gt; 
-</code></pre><p>就可强制添加到Git。<br>或者你发现，可能是<code>.gitignore</code>写得有问题，需要找出来到底哪个规则写错了，可以用<code>git check-ignore</code>命令检查：</p>
-
-          
+<li><p>把目录变成Git可以管理的仓库（仓库初始化）<br><br>  <pre><code>git init</code></pre></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/03/Git-summary/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -622,8 +489,41 @@ Desktop.ini
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生活杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">生活杂记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/21/Blog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/21/Blog/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -737,7 +637,7 @@ Desktop.ini
                alt="Liang Ling" />
           <p class="site-author-name" itemprop="name">Liang Ling</p>
            
-              <p class="site-description motion-element" itemprop="description">想当一个设计狮</p>
+              <p class="site-description motion-element" itemprop="description">我是狗粮啊！</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -752,15 +652,24 @@ Desktop.ini
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -772,11 +681,38 @@ Desktop.ini
           
             
               <span class="links-of-author-item">
+                <a href="https://github.com/Eagle-Ling" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
                 <a href="https://www.instagram.com/lingliang_/?hl=zh-cn" target="_blank" title="Instagram">
                   
                     <i class="fa fa-fw fa-instagram"></i>
                   
                   Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5738616843/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://steamcommunity.com/profiles/76561198314645315/" target="_blank" title="Steam">
+                  
+                    <i class="fa fa-fw fa-steam"></i>
+                  
+                  Steam
                 </a>
               </span>
             
@@ -788,15 +724,19 @@ Desktop.ini
 
         
         
-          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              吐司去边
+              
             </div>
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
                   <a href="http://weibo.com/hsuyuk?from=myfollow_group" title="一条皮皮鱼" target="_blank">一条皮皮鱼</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://CongTsang.com" title="不要脸的CongTsang" target="_blank">不要脸的CongTsang</a>
                 </li>
               
             </ul>
@@ -948,6 +888,14 @@ Desktop.ini
 
   
 
+    
+      <script id="dsq-count-scr" src="https://Renaissancell.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
 
 
 
@@ -960,10 +908,6 @@ Desktop.ini
   
 
 
-
-
-
-  
 
 
 
